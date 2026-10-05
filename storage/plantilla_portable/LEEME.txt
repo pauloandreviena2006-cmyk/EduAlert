@@ -1,0 +1,93 @@
+================================================================
+  EDUALERT JJP - VERSION PORTATIL
+  Sistema de Alerta Temprana Academica
+  I.E. Juan Jimenez Pimentel - Tarapoto
+================================================================
+
+Esta carpeta contiene TODO el sistema (aplicacion + PHP 8.2 + MySQL)
+junto con la base de datos demo. No instala nada en la PC, no
+necesita XAMPP ni internet.
+
+================================================================
+COMO USAR EN OTRA PC (PASO A PASO)
+================================================================
+1. COPIAR el paquete a la PC destino (USB, carpeta compartida, etc.).
+   Es el ZIP llamado EduAlertJJP-Portable.zip (o esta carpeta).
+
+2. DESCOMPRIMIR el ZIP (click derecho sobre el ZIP -> "Extraer todo...").
+   IMPORTANTE:
+     - NO ejecute nada desde dentro del ZIP (Windows 11 permite ver
+       el contenido sin extraer, pero asi NO funciona).
+     - Si Windows pregunta, deje que extraiga en la misma carpeta.
+     - Puede quedar en cualquier ruta, incluso con espacios.
+
+3. Entrar a la carpeta extraida "EduAlertJJP-Portable".
+
+4. Hacer DOBLE CLIC en:  iniciar.bat
+   - Se abrira una ventana negra con el avance ("Generando
+     configuracion de MySQL...", "MySQL listo", "Servidor web listo").
+   - Al final mostrara "EduAlert JJP listo" y abrira el navegador en:
+         http://127.0.0.1:8000
+   - NO cierre esa ventana mientras usa el sistema.
+
+5. Iniciar sesion con las cuentas demo (contrasena: 12345678):
+       admin@edualert.test        (Administrador)
+       director@edualert.test     (Director)
+       docente@edualert.test      (Docente)
+       tutor@edualert.test        (Tutor)
+       auxiliar@edualert.test     (Auxiliar)
+
+6. Para APAGAR: hacer doble clic en  detener.bat
+   (o cerrar la ventana de iniciar.bat, y todo se detiene de forma segura).
+
+================================================================
+SI NO ABRE: REVISE AQUI
+================================================================
+1) "Windows protegio su PC" / SmartScreen al ejecutar iniciar.bat:
+   - Click en "Mas informacion" -> "Ejecutar de todas formas".
+   - O: click derecho sobre el ZIP -> Propiedades -> marcar
+     "Desbloquear" -> Aceptar -> volver a extraer.
+
+2) Error "Falta VCRUNTIME140.dll" o "MSVCP140.dll":
+   - Ya estan incluidas en el paquete (carpeta xampp\php).
+   - Si aun asi aparece, instale en la PC destino: "Microsoft Visual
+     C++ 2015-2022 Redistributable (x64)" (gratis, de microsoft.com).
+
+3) La ventana dice "No se pudo iniciar MySQL / el puerto 3306 esta ocupado":
+   - Hay otro programa usando el puerto. Cierre XAMPP, otro MySQL,
+     o el iniciador abierto antes; si esta en otra PC con el paquete
+     copiado dos veces, cierre la otra instancia. Reintente.
+
+4) La ventana dice "No se pudo iniciar el servidor web (puerto 8000)":
+   - Cierre otros programas que usen el puerto 8000 y reintente.
+
+5) Se abrio el navegador pero la pagina no carga:
+   - Espere 10 segundos y presione F5 (recargar).
+   - Si sigue, cierre con detener.bat y vuelva a iniciar.bat.
+   - Revise que no haya otro iniciador abierto en la misma PC.
+
+6) Windows Firewall pregunta por mysqld/php:
+   - Es normal la primera vez; marque "Permitir acceso".
+   - El sistema solo escucha en 127.0.0.1 (solo su PC, no la red).
+
+7) La carpeta debe estar COMPLETA:
+   - No mueva ni borre archivos dentro. Si va a cambiar la carpeta
+     de lugar, primero use detener.bat.
+
+================================================================
+NOTAS
+================================================================
+- El sistema ya viene instalado con datos demo (200 estudiantes,
+  matricula, calificaciones, asistencias, alertas, seguimientos,
+  notificaciones y reportes).
+- Si por algun motivo la base no aparece, entre a
+  http://127.0.0.1:8000/instalacion y complete los 2 pasos
+  (recrea la base y los datos demo automaticamente).
+- Puertos usados: MySQL 3306 y web 8000, solo en esta PC (127.0.0.1).
+- Los datos se guardan DENTRO de esta carpeta (xampp\mysql\data),
+  no en el sistema operativo. Para respaldar, copie la carpeta
+  xampp\mysql\data\edualert_jjp.
+
+REQUISITOS:
+- Windows 7/8/10/11 de 64 bits. No requiere XAMPP, WAMP, PHP, MySQL,
+  ni conexion a internet.

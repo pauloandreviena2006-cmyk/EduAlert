@@ -1,0 +1,15 @@
+# EduAlert JJP - public/.htaccess
+Options -Indexes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Si la petición es a un archivo real, sírvelo
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    # Enrutar todo al front controller
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+# Proteger archivos sensibles
+<FilesMatch "\.(sql|log|ini|ps1)$">
+    Require all denied
+</FilesMatch>
